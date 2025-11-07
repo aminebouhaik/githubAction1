@@ -1,0 +1,16 @@
+name: my-workflow
+
+on: push
+
+jobs:
+  first-workflow:
+
+    run-on: ubuntu-lastest
+
+    steps:
+      - name: check repository code
+        use: actions/checkout@v4
+      - run: "$(cat hello_world.txt)"
+
+    
+  
