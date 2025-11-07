@@ -1,0 +1,43 @@
+name: build-test-deploy
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check repository
+        uses: actions/checkout@v4
+      
+      - name: use node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: install dependencies
+        run: npm install
+
+      - name: build project
+        run: npm run build
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check repository
+        uses: actions/checkout@v4
+      
+      - name: use node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: install dependencies
+        run: npm install
+
+      - name: test project
+        run: npm run test
+
+   
