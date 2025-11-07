@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: check repository code
         uses: actions/checkout@v4
-      - run: "$(cat hello_world.txt)"
+      - run: echo "$(cat hello_world.txt)"
